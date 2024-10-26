@@ -918,7 +918,8 @@ function startQuiz(){
     score = 0;
     nextButton.innerHTML = "Next";
     showQuestion();
-    console.log(selectElement)
+    //console.log(selectElement)
+    //console.log(document.getElementById("question-count").value)
 }
 function showQuestion(){
     resetState();
@@ -940,7 +941,7 @@ function showQuestion(){
 }
 
 function resetState(){
-    nextButton.style.display = "none";
+    //nextButton.style.display = "none";
     while(answerButtons.firstChild){
         answerButtons.removeChild(answerButtons.firstChild);
     }
@@ -963,31 +964,32 @@ function selectAnswer(e){
         }
         button.disabled = true;
     });
-    nextButton.style.display = "block"
+    // nextButton.style.display = "block"
 }
 
-
-function showScore(){
+// btw val represents the value from select, i pass it down as a function argument rather than use the global variable
+function showScore(val){
     resetState();
-    questionElement.innerHTML = `You Scored ${score/selectElement * 100}%`;
+    questionElement.innerHTML = `You Scored ${score/val * 100}%`;
     nextButton.innerHTML = "Go Again";
-    nextButton.style.display = "block";
+    // nextButton.style.display = "block";
 }
 
 
-function handleNextButton(){
+function handleNextButton(val){
     currentQuestionIndex++
-    if(currentQuestionIndex < selectElement){
+    if(currentQuestionIndex < val){
         showQuestion();
     }else{
-        showScore();
+        showScore(val);
     }
 }
 
 
 nextButton.addEventListener("click", ()=>{
-    if(currentQuestionIndex < selectElement){
-        handleNextButton();
+    let sEL = parseInt(document.getElementById("question-count").value)
+    if(currentQuestionIndex < sEL){
+        handleNextButton(sEL);
     }else{
         startQuiz();
     }
@@ -996,9 +998,10 @@ nextButton.addEventListener("click", ()=>{
 
 document.getElementById("question-count").addEventListener("change", ()=>{
     let selectElement = parseInt(document.getElementById("question-count").value);
-    selectElement;
+    //selectElement;
     document.getElementById("chemQues").style.display = "block";
-}, startQuiz());
+    startQuiz();
+});
 
 
 
