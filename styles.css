@@ -61,16 +61,51 @@ body{
     color: white;
     font-weight: 500;
     padding: 10px;
-    margin: 5px auto 0;
+    /* margin: 5px auto 0; */
     border-radius: 4px;
     cursor: pointer;
     /* display: none; */
+}
+#previous-btn{
+    border: 0;
+    width: 150px;
+    background: #001e4d;
+    color: white;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+#Start-Test{
+    border: 0;
+    width: 100px;
+    background: #001e4d;
+    color: white;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+#reset-btn{
+    display: none;
 }
 .correct{
     background: #9aeabc;
 }
 .incorrect{
     background: #ff9393;
+}
+.next-previous{
+    display: flex;
+}
+#Error{
+    display: none;
+    color: red;
+}
+#reset-btn{
+    display: none;
 }
 /* .chem-ques{
     display:none;
