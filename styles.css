@@ -64,7 +64,7 @@ body{
     /* margin: 5px auto 0; */
     border-radius: 4px;
     cursor: pointer;
-    /* display: none; */
+    display: none;
 }
 #previous-btn{
     border: 0;
@@ -76,6 +76,7 @@ body{
     border-radius: 4px;
     cursor: pointer;
     margin-right: 15px;
+    display: none;
 }
 #Start-Test{
     border: 0;

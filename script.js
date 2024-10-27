@@ -910,6 +910,7 @@ const previousButton = document.getElementById("previous-btn");
 const resetButton = document.getElementById("reset-btn");
 let selectElement = parseInt(document.getElementById("question-count").value);
 const startTestBtn = document.getElementById("Start-Test")
+const timerDisplay = document.getElementById("timerDisplay");
 // let selectedValue = parseInt(selectElement.value); 
 
 let timerInterval;
@@ -936,10 +937,15 @@ function startTimer(minutes) {
     const timerDisplay = document.getElementById("timerDisplay");
     timerDisplay.classList.remove("hidden");
     let val = parseInt(document.getElementById("question-count").value);
-
+    if(timerDisplay.style.display === "none"){
+        timerDisplay.style.display = "block"
+    }
     let time = minutes * 60;
-    clearInterval(timerInterval);
-
+    //clearInterval(timerInterval);
+    //first check if there was an existing timerInterval
+    if(typeof timerInterval === "number"){
+        clearInterval(timerInterval);
+    }
     timerInterval = setInterval(() => {
         const minutesLeft = Math.floor(time / 60);
         const secondsLeft = time % 60;
@@ -954,10 +960,13 @@ function startTimer(minutes) {
     }, 1000);
 }
 
-function showQuestion() {
+function showQuestion(index = currentQuestionIndex) {
     resetState();
-    let currentQuestion = questions[currentQuestionIndex];
-    let questionNo = currentQuestionIndex + 1;
+    if (document.getElementById("inquiries").style.display === "none"){
+        document.getElementById("inquiries").style.display = "block";
+    }
+    let currentQuestion = questions[index];
+    let questionNo = index + 1;
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
 
@@ -974,7 +983,7 @@ function showQuestion() {
 }
 
 function resetState() {
-    //nextButton.style.display = "none";
+    nextButton.style.display = "none";
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
@@ -987,8 +996,7 @@ function selectAnswer(e) {
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         score++;
-    }
-    else {
+    } else {
         selectedBtn.classList.add("incorrect");
     }
     Array.from(answerButtons.children).forEach(button => {
@@ -997,7 +1005,7 @@ function selectAnswer(e) {
         }
         button.disabled = true;
     });
-    // nextButton.style.display = "block"
+     nextButton.style.display = "block"
 }
 
 // btw val represents the value from select, i pass it down as a function argument rather than use the global variable
@@ -1005,19 +1013,25 @@ function showScore(val) {
     resetState();
     questionElement.innerHTML = `You Scored ${score / val * 100}%`;
     resetButton.style.display = "block";
+    resetButton.className = nextButton.className
     previousButton.style.display = "none";
-
+    nextButton.style.display = "none"
+    timerDisplay.style.display = "none"
     document.getElementById("inquiries").style.display = "none";
-    // nextButton.style.display = "block";
+    // nextButton.textContent="Go Again"
+    // currentQuestionIndex = 0
 }
 
 
 // This was supposed to be the function to reset the test
-// function resetTest(){
-//     clearInterval(timerInterval);
-//     currentQuestionIndex = 0;
-// }
-
+function resetTest(){
+    window.location.reload()
+    // clearInterval(timerInterval);
+    // currentQuestionIndex = 0;
+    // resetButton.style.display = "none";
+    // showQuestion()
+}
+resetButton.addEventListener("click", resetTest)
 function handleNextButton(val) {
     currentQuestionIndex++
     if (currentQuestionIndex < val) {
@@ -1028,13 +1042,14 @@ function handleNextButton(val) {
 }
 
 // This was supposed to be the function for the previous button adjust as needed
-// function handlePreviousButton(){
-//     if(currentQuestionIndex > 0){
-//         showQuestion(currentQuestionIndex - 1);
-//     }
-// }
+function handlePreviousButton(){
+    if(currentQuestionIndex > 0){
+        currentQuestionIndex--
+        showQuestion(currentQuestionIndex);
+    }
+}
 
-// previousButton.addEventListener("click", handlePreviousButton);
+previousButton.addEventListener("click", handlePreviousButton);
 
 // resetButton.addEventListener("click", resetTest());
 
@@ -1058,8 +1073,22 @@ startTestBtn.addEventListener("click", ()=>{
     } else {
         document.getElementById("Error").style.display = "none";
         document.getElementById("chemQues").style.display = "block";
+        startQuiz()
     }
-}, startQuiz());
+});
+
+// startTestBtn.addEventListener("click", ()=>{
+//     let val = parseInt(document.getElementById("question-count").value);
+//     let timerMinutes = parseInt(document.getElementById("timer").value);
+//     if (isNaN(val) || isNaN(timerMinutes) || val <= 0 || timerMinutes <= 0) {
+//         document.getElementById("Error").style.display = "block";
+//         document.getElementById("chemQues").style.display = "none";
+//     } else {
+//         document.getElementById("Error").style.display = "none";
+//         document.getElementById("chemQues").style.display = "block";
+//     }
+// i noticed you did this here, i don't know why you are calling startQuiz() function as the 3rd argument to the event listener
+// }, startQuiz());
 
 
 
