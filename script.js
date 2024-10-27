@@ -983,7 +983,7 @@ function showQuestion(index = currentQuestionIndex) {
 }
 
 function resetState() {
-    //nextButton.style.display = "none";
+    nextButton.style.display = "none";
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
@@ -996,8 +996,7 @@ function selectAnswer(e) {
     if (isCorrect) {
         selectedBtn.classList.add("correct");
         score++;
-    }
-    else {
+    } else {
         selectedBtn.classList.add("incorrect");
     }
     Array.from(answerButtons.children).forEach(button => {
@@ -1006,7 +1005,7 @@ function selectAnswer(e) {
         }
         button.disabled = true;
     });
-    // nextButton.style.display = "block"
+     nextButton.style.display = "block"
 }
 
 // btw val represents the value from select, i pass it down as a function argument rather than use the global variable
@@ -1026,10 +1025,11 @@ function showScore(val) {
 
 // This was supposed to be the function to reset the test
 function resetTest(){
-    clearInterval(timerInterval);
-    currentQuestionIndex = 0;
-    resetButton.style.display = "none";
-    showQuestion()
+    window.location.reload()
+    // clearInterval(timerInterval);
+    // currentQuestionIndex = 0;
+    // resetButton.style.display = "none";
+    // showQuestion()
 }
 resetButton.addEventListener("click", resetTest)
 function handleNextButton(val) {
