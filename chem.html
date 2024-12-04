@@ -9,23 +9,25 @@
 </head>
 
 <body>
+    <div id="particles-js"></div>
     <h1 class="Jb">Jamb Standard CBT</h1>
     <div class="app">
         <h1>Chemistry</h1>
+        <p id="Error">Please Select number Of Questions and Time</p>
         <div id="inquiries">
-            <p id="Error">Please Select number Of Questions and Time</p>
-            <label>Select Number Of Questions</label>
+            <label>Select Number Of Questions:</label>
             <select id="question-count" required>
                 <option value="">--Select Number Of Questions--</option>
                 <option value="4">4 Questions</option>
                 <option value="5">5 Questions</option>
                 <option value="6">6 Questions</option>
-            </select>
+            </select><br>
             <label>Timer(Minutes):</label>
             <input type="number" id="timer" min="1" max="60" required><br>
             <button id="Start-Test">Start Test</button>
         </div>
         <div class="chem-ques" style="display: none;" id="chemQues">
+            <p id="usr"><i>Select an answer to move to the next question</i></p>
             <div id="timerDisplay" class="hidden">Time Left:00:00</div>
             <h2 id="question">
                 Question goes here
@@ -46,6 +48,8 @@
         </div>
     </div>
     <script src="./script.js"></script>
+    <script src="./particles.js-master/particles.min.js"></script>
+    <script src="./particle-init.js"></script>
 </body>
 
 </html>

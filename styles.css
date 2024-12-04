@@ -6,20 +6,35 @@
 }
 body{
     background: #001e4d;
+    color: #94a3b8;
+    height: 100%;
+}
+#particles-js{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1e3c72;
+    z-index: -1;
 }
 .app{
+    position: relative;
+    z-index: 1;
     background: white;
-    width: 40%;
+    width: 80%;
+    color: #001e4d;
     max-width: 600px;
-    margin: 20px auto 0;
+    margin: 20px auto 0 70px;
     border-radius: 10px;
     padding: 30px;
 }
 .Jb{
-    text-align: center;
+    text-align: left;
+    margin-left: 80px;
     font-size: 40px;
     color: white;
-    margin-top: 10px;
+    margin-top: 30px;
 }
 .app h1{
     font-size: 25px;
@@ -78,6 +93,21 @@ body{
     margin-right: 15px;
     display: none;
 }
+#timerDisplay{
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 15px;
+}
+select{
+    outline: none;
+    padding: 2px;
+    margin-top: 10px;
+}
+input{
+    outline: none;
+    padding: 2px;
+    margin-top: 20px;
+}
 #Start-Test{
     border: 0;
     width: 100px;
@@ -87,10 +117,19 @@ body{
     padding: 10px;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 #reset-btn{
     display: none;
+    border: 0;
+    width: 100px;
+    background: #001e4d;
+    color: white;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 .correct{
     background: #9aeabc;
@@ -107,6 +146,10 @@ body{
 }
 #reset-btn{
     display: none;
+}
+#usr{
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 /* .chem-ques{
     display:none;

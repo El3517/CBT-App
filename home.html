@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./home.css">
+    <title>Jamb Practice Assessment</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="./Img/welcome_img-removebg-preview.png" alt="">
+            <h1>To Jamb Practice Assessment</h1>
+        </div>
+    </header>
+    <section class="header-section">
+        <div class="heading-container">
+            <div class="content-wrapper">
+            <h2 class="fade-heading">How well do you know your strenghts?</h2>
+            <h2 class="fade-heading">Do you have what it takes to conquer Jamb?</h2>
+            <h2 class="fade-heading">Are you confident that you can tackle any question?</h2>
+            <p class="sub-text">Find Out if you are ready for the challenge</p>
+            <button type="submit" class="cta-button" onclick="openPopup()">Take The Assesment</button>
+            </div>
+            <div class="popup" id="popup">
+                <img src="./Img/blue-check-mark-tick-verification-icon-symbol-vector-316724907.jpg" alt=".">
+                <h2>Welcome Challenger!</h2>
+                <p>Please Select A Subject</p>
+                <button type="button" class="sub-btn"><a href="chem.html">Chemistry</a></button>
+                <button type="button" class="sub-btn"><a href="#">Biology</a></button>
+                <button type="button" class="sub-btn"><a href="#">Physics</a></button>
+                <button type="button" class="sub-btn"><a href="#">English</a></button>
+                <button type="button" class="close" onclick="closePopup()">I'm not ready</button>
+            </div>
+        </div>
+    </section>
+    <footer class="footer-container">
+        <div class="footer-section">
+            <div class="footer-left">
+                <img src="./Img/Digivo-Logo-Digital-1.svg" alt="." class="footer-logo">
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <p><strong>Contact</strong></p>
+                <p>Copyright © 2024 Digivo. All Rights Reserved </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./home.js"></script>
+</body>
+</html>

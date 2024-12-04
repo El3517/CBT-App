@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jamb standard CBT</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <h1 class="Jb">Jamb Standard CBT</h1>
+    <div class="app">
+        <h1>English</h1>
+        <p id="Error">Please Select number Of Questions and Time</p>
+        <div id="inquiries">
+            <label>Select Number Of Questions:</label>
+            <select id="question-count" required>
+                <option value="">--Select Number Of Questions--</option>
+                <option value="4">4 Questions</option>
+                <option value="5">5 Questions</option>
+                <option value="6">6 Questions</option>
+            </select>
+            <label>Timer(Minutes):</label>
+            <input type="number" id="timer" min="1" max="60" required><br>
+            <button id="Start-Test">Start Test</button>
+        </div>
+        <div class="eng-ques" style="display: none;" id="engQues">
+            <p id="usr"><i>Select an answer to move to the next question</i></p>
+            <div id="timerDisplay" class="hidden">Time Left:00:00</div>
+            <h2 id="question">
+                Question goes here
+            </h2>
+            <div id="answer-buttons">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+            </div>
+            <div class="next-previous">
+                <button id="previous-btn">Previous</button>
+                <button id="next-btn">Next</button>
+            </div>
+            <div class="reset">
+                <button id="reset-btn">Go Again</button>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
